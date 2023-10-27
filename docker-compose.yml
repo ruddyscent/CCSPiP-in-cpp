@@ -1,0 +1,9 @@
+services:
+  ccspicpp:
+    build: .
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    # Interactive shell
+    stdin_open: true
+    tty: true
