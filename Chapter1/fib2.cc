@@ -2,7 +2,6 @@
  * @file fib2.cc
  * @brief A program that calculates the nth Fibonacci number using a recursive algorithm.
  * @details This program defines a recursive function to calculate the nth Fibonacci number and a main function that calls the function to calculate and print the 5th Fibonacci number to the console.
- * @date Oct. 27, 2023
  * @copyright Copyright 2023 Kyungwon Chun
  * 
  * @license Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,8 +20,6 @@
 #include <cstdlib>
 #include <iostream>
 
-using namespace std;
-
 /**
  * Calculates the nth Fibonacci number recursively.
  * @param n The index of the Fibonacci number to calculate.
@@ -37,6 +34,6 @@ int fib2(int n) {
 
 
 int main(int argc, char* argv[]) {
-    cout << fib2(5) << endl;
+    std::cout << fib2(5) << std::endl;
     return EXIT_SUCCESS;
 }

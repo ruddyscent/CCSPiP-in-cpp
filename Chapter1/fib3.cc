@@ -21,9 +21,7 @@
 #include <iostream>
 #include <map>
 
-using namespace std;
-
-map<int, int> memo = {{0, 0}, {1, 1}};  // our base cases
+std::map<int, int> memo = {{0, 0}, {1, 1}};  // our base cases
 
 
 /**
@@ -48,6 +46,6 @@ int fib3(int n) {
  * @return int The exit status of the program.
  */
 int main(int argc, char* argv[]) {
-    cout << fib3(5) << endl;
+    std::cout << fib3(5) << std::endl;
     return EXIT_SUCCESS;
 }
