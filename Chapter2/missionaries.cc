@@ -24,7 +24,7 @@
 
 #include "generic_search.h"
 
-const int MAX_NUM = 2;
+const int MAX_NUM = 3;
 
 class MCState {
 public:
@@ -53,35 +53,35 @@ public:
         std::vector<MCState> sucs;
         if (s._boat) { // boat on west bank
             if (s._wm > 1) {
-                sucs.push_back(MCState(s._wm - 2, s._wc, !_boat));
+                sucs.push_back(MCState(s._wm - 2, s._wc, !s._boat));
             }
             if (s._wm > 0) {
-                sucs.push_back(MCState(s._wm - 1, s._wc, !_boat));
+                sucs.push_back(MCState(s._wm - 1, s._wc, !s._boat));
             }
             if (s._wc > 1) {
-                sucs.push_back(MCState(s._wm, s._wc - 2, !_boat));
+                sucs.push_back(MCState(s._wm, s._wc - 2, !s._boat));
             }
             if (s._wc > 0) {
-                sucs.push_back(MCState(s._wm, s._wc - 1, !_boat));
+                sucs.push_back(MCState(s._wm, s._wc - 1, !s._boat));
             }
-            if (s._wc > 0 && _wm > 0) {
-                sucs.push_back(MCState(s._wm - 1, s._wc - 1, !_boat));
+            if (s._wc > 0 && s._wm > 0) {
+                sucs.push_back(MCState(s._wm - 1, s._wc - 1, !s._boat));
             }
         } else { // boat on east bank
             if (s._em > 1) {
-                sucs.push_back(MCState(s._wm + 2, s._wc, !_boat));
+                sucs.push_back(MCState(s._wm + 2, s._wc, !s._boat));
             }
             if (s._em > 0) {
-                sucs.push_back(MCState(s._wm + 1, s._wc, !_boat));
+                sucs.push_back(MCState(s._wm + 1, s._wc, !s._boat));
             }
             if (s._ec > 1) {
-                sucs.push_back(MCState(s._wm, s._wc + 2, !_boat));
+                sucs.push_back(MCState(s._wm, s._wc + 2, !s._boat));
             }
             if (s._ec > 0) {
-                sucs.push_back(MCState(s._wm, s._wc + 1, !_boat));
+                sucs.push_back(MCState(s._wm, s._wc + 1, !s._boat));
             }
-            if (s._ec > 0 && _em > 0) {
-                sucs.push_back(MCState(s._wm + 1, s._wc + 1, !_boat));
+            if (s._ec > 0 && s._em > 0) {
+                sucs.push_back(MCState(s._wm + 1, s._wc + 1, !s._boat));
             }
         }
         std::vector<MCState> legal_sucs;

@@ -181,7 +181,7 @@ Node<T> *bfs(const T &initial, const std::function<bool(const T &)> &goal_test,
              const SuccessorFunction<T> &successors) {
     std::queue<Node<T> *> frontier;
     frontier.push(new Node<T>(initial, nullptr));
-    std::set<T> explored;
+    std::set<T> explored = {initial};
 
     while (!frontier.empty()) {
         Node<T> *current_node = frontier.front();
