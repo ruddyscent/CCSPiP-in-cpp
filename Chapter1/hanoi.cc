@@ -21,8 +21,6 @@
 #include <iostream>
 #include <stack>
 
-using namespace std;
-
 /**
  * Solves the Tower of Hanoi problem recursively.
  * Moves the top n disks from the begin stack to the end stack using the temp stack as a buffer.
@@ -31,7 +29,7 @@ using namespace std;
  * @param temp The stack used as a buffer.
  * @param n The number of disks to move.
  */
-void hanoi(stack<int>& begin, stack<int>& end, stack<int>& temp, int n) {
+void hanoi(std::stack<int>& begin, std::stack<int>& end, std::stack<int>& temp, int n) {
     if (n == 1) {
         end.push(begin.top());
         begin.pop();
@@ -48,17 +46,17 @@ void hanoi(stack<int>& begin, stack<int>& end, stack<int>& temp, int n) {
  * 
  * @param s The stack to be printed.
  */
-void print_stack(const stack<int>& s) {
-    stack<int> temp = s;
-    cout << "[";
+void print_stack(const std::stack<int>& s) {
+    std::stack<int> temp = s;
+    std::cout << "[";
     while (!temp.empty()) {
-        cout << temp.top();
+        std::cout << temp.top();
         temp.pop();
         if (!temp.empty()) {
-            cout << " ";
+            std::cout << " ";
         }
     }
-    cout << "]" << endl;
+    std::cout << "]" << std::endl;
 }
 
 /**
@@ -70,9 +68,9 @@ void print_stack(const stack<int>& s) {
  */
 int main(int argc, char* argv[]) {
     int num_discs = 3;
-    stack<int> tower_a;
-    stack<int> tower_b;
-    stack<int> tower_c;
+    std::stack<int> tower_a;
+    std::stack<int> tower_b;
+    std::stack<int> tower_c;
 
     for (int i = 1; i <= num_discs; ++i) {
         tower_a.push(i);

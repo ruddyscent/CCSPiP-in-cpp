@@ -20,8 +20,6 @@
 #include <cstdlib>
 #include <iostream>
 
-using namespace std;
-
 /**
  * Calculates the nth Fibonacci number iteratively.
  * @param n The index of the Fibonacci number to calculate.
@@ -47,6 +45,6 @@ int fib5(int n) {
  * @return int The exit status of the program.
  */
 int main(int argc, char* argv[]) {
-    cout << fib5(5) << endl;
+    std::cout << fib5(5) << std::endl;
     return EXIT_SUCCESS;
 }

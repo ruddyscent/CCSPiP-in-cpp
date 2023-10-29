@@ -23,18 +23,16 @@
 #include <tuple>
 #include <vector>
 
-using namespace std;
-
 /**
  * Encrypts a given string using an unbreakable encryption algorithm.
  *
  * @param original The original string to encrypt.
  * @return A tuple containing the encrypted string and the encryption key.
  */
-tuple<int, int> encrypt(const string& original) {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<int> distrib(0, 255);
+std::tuple<int, int> encrypt(const std::string& original) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> distrib(0, 255);
 
     int dummy = 0;
     for (int i = 0; i < original.size(); i++) {
@@ -50,7 +48,7 @@ tuple<int, int> encrypt(const string& original) {
 
     int encrypted = original_key ^ dummy;
 
-    return make_tuple(dummy, encrypted);
+    return std::make_tuple(dummy, encrypted);
 }
 
 /**
@@ -59,16 +57,16 @@ tuple<int, int> encrypt(const string& original) {
  * @param key2 The second key used for decryption.
  * @return The decrypted message as a string.
  */
-string decrypt(int key1, int key2) {
+std::string decrypt(int key1, int key2) {
     int decrypted = key1 ^ key2;
 
-    string temp;
+    std::string temp;
     while (decrypted != 0) {
         temp += static_cast<char>(decrypted & 0xFF);
         decrypted >>= 8;
     }
 
-    return string(temp.rbegin(), temp.rend());
+    return std::string(temp.rbegin(), temp.rend());
 }
 
 /**
@@ -81,32 +79,32 @@ string decrypt(int key1, int key2) {
  * @param original The string to be encrypted.
  * @return A tuple containing two vectors - the dummy vector and the encrypted vector.
  */
-tuple<vector<int>, vector<int>> encrypt2(const string& original) {
+std::tuple<std::vector<int>, std::vector<int>> encrypt2(const std::string& original) {
     int chunk_size = sizeof(int) * 8 / 8;
     int num_chunks = int(original.size() / chunk_size + 1);
 
-    vector<int> dummy;
-    vector<int> encrypted;
+    std::vector<int> dummy;
+    std::vector<int> encrypted;
     int i = 0;
     while (i < num_chunks - 1) {
         auto keys = encrypt(original.substr(i * chunk_size, chunk_size));
-        dummy.emplace_back(get<0>(keys));
-        encrypted.emplace_back(get<1>(keys));
+        dummy.emplace_back(std::get<0>(keys));
+        encrypted.emplace_back(std::get<1>(keys));
         i++;
     }
     
     auto keys = encrypt(original.substr(i * chunk_size));
-    dummy.emplace_back(get<0>(keys));
-    encrypted.emplace_back(get<1>(keys));
+    dummy.emplace_back(std::get<0>(keys));
+    encrypted.emplace_back(std::get<1>(keys));
 
-    return make_tuple(dummy, encrypted);
+    return std::make_tuple(dummy, encrypted);
 }
 
 /**
  * @brief A sequence of characters represented as a string.
  */
-string decrypt2(const vector<int>& keys1, const vector<int>& keys2) {
-    string result;
+std::string decrypt2(const std::vector<int>& keys1, const std::vector<int>& keys2) {
+    std::string result;
     for (int i = 0; i < keys1.size(); i++) {
         result += decrypt(keys1[i], keys2[i]);
     }
@@ -123,8 +121,8 @@ string decrypt2(const vector<int>& keys1, const vector<int>& keys2) {
  */
 int main(int argc, char* argv[]) {
     auto keys = encrypt2("One Time Pad!");
-    string result = decrypt2(get<0>(keys), get<1>(keys));
-    cout << result << endl;
+    std::string result = decrypt2(std::get<0>(keys), std::get<1>(keys));
+    std::cout << result << std::endl;
 
     return EXIT_SUCCESS;
 }

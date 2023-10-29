@@ -27,9 +27,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
-
 /**
  * @brief A class that compresses and decompresses gene sequences.
  * 
@@ -44,7 +41,7 @@ public:
      * @tparam T The type of the compressed gene.
      * @param gene The gene string to be compressed.
      */
-    CompressedGene<T>(const string& gene): _bit_string(1) {
+    CompressedGene<T>(const std::string& gene): _bit_string(1) {
         _compress(gene);
     }
 
@@ -54,8 +51,8 @@ public:
      * @tparam T The type of the compressed gene.
      * @return The decompressed gene sequence.
      */
-    string decompress() const {
-        string gene;
+    std::string decompress() const {
+        std::string gene;
         for (int i = bit_length() - 3; i >= 0; i -= 2) {  // - 3 to exclude sentinel
             int bits = (_bit_string >> i) & 0b11;  // get just 2 relevant bits
             switch (bits) {
@@ -72,7 +69,7 @@ public:
                     gene += 'T';
                     break;
                 default:
-                    throw invalid_argument("Invalid bits: " + to_string(bits));
+                    throw std::invalid_argument("Invalid bits: " + std::to_string(bits));
             }
         }
         return gene;
@@ -105,7 +102,7 @@ private:
      * @tparam T The type of the compressed gene.
      * @param gene The gene sequence to be compressed.
      */
-    void _compress(const string& gene) {
+    void _compress(const std::string& gene) {
         for (char nucleotide : gene) {
             _bit_string <<= 2;  // shift left two bits
             switch (nucleotide) {  
@@ -122,7 +119,7 @@ private:
                     _bit_string |= 0b11;
                     break;
                 default:
-                    throw invalid_argument("Invalid Nucleotide: " + string(1, nucleotide));
+                    throw std::invalid_argument("Invalid Nucleotide: " + std::string(1, nucleotide));
             }
         }
     }
@@ -137,7 +134,7 @@ private:
  * @tparam T The data type to be compressed.
  */
 template<typename T>
-ostream& operator<<(ostream& out, const CompressedGene<T>& gene) {
+std::ostream& operator<<(std::ostream& out, const CompressedGene<T>& gene) {
     out << gene.decompress();
     return out;
 }
@@ -155,7 +152,7 @@ public:
      * 
      * @param gene The gene string to be compressed.
      */
-    CompressedGene2<T>(const string& gene) {
+    CompressedGene2<T>(const std::string& gene) {
         int chunk_size = (sizeof(T) * 8 - 1) / 2;
         int num_chunks = int(gene.size() / chunk_size + 1);
         int i = 0;
@@ -171,8 +168,8 @@ public:
      * 
      * @return The decompressed gene string.
      */
-    string decompress() const {
-        string gene;
+    std::string decompress() const {
+        std::string gene;
         for (const CompressedGene<T>& chunk : container) {
             gene += chunk.decompress();
         }
@@ -189,7 +186,7 @@ public:
     }
 
 private:
-    vector<CompressedGene<T>> container;
+    std::vector<CompressedGene<T>> container;
 };
 
 /**
@@ -198,7 +195,7 @@ private:
  * @tparam T The type of data to be compressed.
  */
 template<typename T>
-ostream& operator<<(ostream& out, const CompressedGene2<T>& gene) {
+std::ostream& operator<<(std::ostream& out, const CompressedGene2<T>& gene) {
     out << gene.decompress();
     return out;
 }
@@ -211,16 +208,16 @@ ostream& operator<<(ostream& out, const CompressedGene2<T>& gene) {
  * @return int Exit status of the program.
  */
 int main(int argc, char* argv[]) {
-    string original;
+    std::string original;
     for (int i = 0; i < 100; i++) {
         original += "TAGGGATTAACCGTTATATATATATAGCCATGGATCGATTATATAGGGATTAACCGTTATATATATATAGCCATGGATCGATTATA";
     }
 
-    cout << "original is " << original.size() * sizeof(char) << " bytes" << endl;
+    std::cout << "original is " << original.size() * sizeof(char) << " bytes" << std::endl;
     CompressedGene2<int> compressed(original);  // compress
-    cout << "compressed is " << compressed.bit_length() / 8 << " bytes" << endl;
-    cout << compressed << endl;  // decompress
-    cout << "original and decompressed are the same: " << (original == compressed.decompress() ? "true" : "false") << endl;
+    std::cout << "compressed is " << compressed.bit_length() / 8 << " bytes" << std::endl;
+    std::cout << compressed << std::endl;  // decompress
+    std::cout << "original and decompressed are the same: " << (original == compressed.decompress() ? "true" : "false") << std::endl;
 
     return EXIT_SUCCESS;
 }
