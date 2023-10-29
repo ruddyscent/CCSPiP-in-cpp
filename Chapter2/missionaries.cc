@@ -24,7 +24,7 @@
 
 #include "generic_search.h"
 
-const int MAX_NUM = 3;
+const int MAX_NUM = 2;
 
 class MCState {
 public:
@@ -46,42 +46,42 @@ public:
     }
 
     bool goal_test(const MCState& s) const {
-        return is_legal() && _em == MAX_NUM && _ec == MAX_NUM;
+        return s.is_legal() && s._em == MAX_NUM && s._ec == MAX_NUM;
     }
 
     std::vector<MCState> successors(const MCState& s) const {
         std::vector<MCState> sucs;
-        if (_boat) { // boat on west bank
-            if (_wm > 1) {
-                sucs.push_back(MCState(_wm - 2, _wc, !_boat));
+        if (s._boat) { // boat on west bank
+            if (s._wm > 1) {
+                sucs.push_back(MCState(s._wm - 2, s._wc, !_boat));
             }
-            if (_wm > 0) {
-                sucs.push_back(MCState(_wm - 1, _wc, !_boat));
+            if (s._wm > 0) {
+                sucs.push_back(MCState(s._wm - 1, s._wc, !_boat));
             }
-            if (_wc > 1) {
-                sucs.push_back(MCState(_wm, _wc - 2, !_boat));
+            if (s._wc > 1) {
+                sucs.push_back(MCState(s._wm, s._wc - 2, !_boat));
             }
-            if (_wc > 0) {
-                sucs.push_back(MCState(_wm, _wc - 1, !_boat));
+            if (s._wc > 0) {
+                sucs.push_back(MCState(s._wm, s._wc - 1, !_boat));
             }
-            if (_wc > 0 && _wm > 0) {
-                sucs.push_back(MCState(_wm - 1, _wc - 1, !_boat));
+            if (s._wc > 0 && _wm > 0) {
+                sucs.push_back(MCState(s._wm - 1, s._wc - 1, !_boat));
             }
         } else { // boat on east bank
-            if (_em > 1) {
-                sucs.push_back(MCState(_wm + 2, _wc, !_boat));
+            if (s._em > 1) {
+                sucs.push_back(MCState(s._wm + 2, s._wc, !_boat));
             }
-            if (_em > 0) {
-                sucs.push_back(MCState(_wm + 1, _wc, !_boat));
+            if (s._em > 0) {
+                sucs.push_back(MCState(s._wm + 1, s._wc, !_boat));
             }
-            if (_ec > 1) {
-                sucs.push_back(MCState(_wm, _wc + 2, !_boat));
+            if (s._ec > 1) {
+                sucs.push_back(MCState(s._wm, s._wc + 2, !_boat));
             }
-            if (_ec > 0) {
-                sucs.push_back(MCState(_wm, _wc + 1, !_boat));
+            if (s._ec > 0) {
+                sucs.push_back(MCState(s._wm, s._wc + 1, !_boat));
             }
-            if (_ec > 0 && _em > 0) {
-                sucs.push_back(MCState(_wm + 1, _wc + 1, !_boat));
+            if (s._ec > 0 && _em > 0) {
+                sucs.push_back(MCState(s._wm + 1, s._wc + 1, !_boat));
             }
         }
         std::vector<MCState> legal_sucs;
@@ -132,16 +132,16 @@ void display_solution(const std::vector<MCState>& path) {
     }
     MCState old_state = path.front();
     std::cout << old_state << std::endl;
-    for (const auto& current_state : path) {
-        if (current_state._boat) {
-            std::cout << old_state._em - current_state._em << " missionaries and "
-                      << old_state._ec - current_state._ec << " cannibals moved from the east bank to the west bank.\n";
+    for (int i = 1; i < path.size(); i++) {
+        if (path[i]._boat) {
+            std::cout << old_state._em - path[i]._em << " missionaries and "
+                      << old_state._ec - path[i]._ec << " cannibals moved from the east bank to the west bank.\n";
         } else {
-            std::cout << old_state._wm - current_state._wm << " missionaries and "
-                      << old_state._wc - current_state._wc << " cannibals moved from the west bank to the east bank.\n";
+            std::cout << old_state._wm - path[i]._wm << " missionaries and "
+                      << old_state._wc - path[i]._wc << " cannibals moved from the west bank to the east bank.\n";
         }
-        std::cout << current_state << std::endl;
-        old_state = current_state;
+        std::cout << path[i] << std::endl;
+        old_state = path[i];
     }
 }
 
