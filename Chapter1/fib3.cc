@@ -15,14 +15,13 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-**/
+ */
 
 #include <cstdlib>
 #include <iostream>
 #include <map>
 
 std::map<int, int> memo = {{0, 0}, {1, 1}};  // our base cases
-
 
 /**
  * Calculates the nth Fibonacci number using memoization technique.
@@ -33,10 +32,8 @@ std::map<int, int> memo = {{0, 0}, {1, 1}};  // our base cases
 int fib3(int n) {
     if (memo.find(n) == memo.end())  // if n is not in the memo
         memo[n] = fib3(n - 1) + fib3(n - 2);  // memoize
-
     return memo[n];  // return the nth Fibonacci number
 }
-
 
 /**
  * @brief The main function that calls the fib3 function and prints its result.

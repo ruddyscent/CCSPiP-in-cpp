@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-**/
+ */
 
 #include <cstdlib>
 #include <iostream>
@@ -33,6 +33,13 @@ int fib2(int n) {
 }
 
 
+/**
+ * @brief The main function that calls the fib2 function and prints its result.
+ * 
+ * @param argc The number of command-line arguments provided.
+ * @param argv An array of pointers to the arguments.
+ * @return int The exit status of the program.
+ */
 int main(int argc, char* argv[]) {
     std::cout << fib2(5) << std::endl;
     return EXIT_SUCCESS;
