@@ -176,10 +176,10 @@ public:
         for (int i = 1; i < path.size(); i++) {
             if (path[i]._boat) {
                 std::cout << old_state._em - path[i]._em << " missionaries and "
-                        << old_state._ec - path[i]._ec << " cannibals moved from the east bank to the west bank.\n";
+                    << old_state._ec - path[i]._ec << " cannibals moved from the east bank to the west bank.\n";
             } else {
                 std::cout << old_state._wm - path[i]._wm << " missionaries and "
-                        << old_state._wc - path[i]._wc << " cannibals moved from the west bank to the east bank.\n";
+                    << old_state._wc - path[i]._wc << " cannibals moved from the west bank to the east bank.\n";
             }
             std::cout << path[i] << std::endl;
             old_state = path[i];

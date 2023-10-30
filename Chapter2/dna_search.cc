@@ -65,8 +65,8 @@ Gene string_to_gene(std::string s) {
         }
 
         std::vector<Nucleotide> tmp;
-        for (int i = 0; i < 3; i++) {
-            switch (s[i]) {
+        for (char c : s) {
+            switch (c) {
                 case 'A':
                     tmp.push_back(Nucleotide::A);
                     break;
@@ -80,7 +80,7 @@ Gene string_to_gene(std::string s) {
                     tmp.push_back(Nucleotide::T);
                     break;
                 default:
-                    std::cerr << "Invalid Nucleotide: " << s[i] << std::endl;
+                    std::cerr << "Invalid Nucleotide: " << c << std::endl;
                     exit(EXIT_FAILURE);
             }
         }
