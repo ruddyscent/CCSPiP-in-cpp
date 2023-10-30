@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD 2a)
 
 add_executable(map_coloring map_coloring.cc)
 add_executable(queens queens.cc)
+add_executable(word_search word_search.cc)
