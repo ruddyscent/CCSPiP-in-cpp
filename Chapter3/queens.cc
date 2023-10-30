@@ -72,12 +72,15 @@ public:
 int main(int argc, char* argv[]) {
     std::vector<int> columns = {1, 2, 3, 4, 5, 6, 7, 8};
     std::unordered_map<int, std::vector<int>> rows;
+
     for (const auto& column : columns) {
         rows[column] = {1, 2, 3, 4, 5, 6, 7, 8};
     }
+
     CSP<int, int> csp(columns, rows);
     csp.add_constraint(std::make_shared<QueensConstraint>(columns));
     std::unordered_map<int, int> solution = csp.backtracking_search();
+    
     if (solution.empty()) {
         std::cout << "No solution found!" << std::endl;
     }
@@ -88,5 +91,6 @@ int main(int argc, char* argv[]) {
         }
         std::cout << 8 << ": " << solution[8] << "}" << std::endl;
     }
+    
     return EXIT_SUCCESS;
 }

@@ -64,9 +64,11 @@ public:
 int main(int argc, char* argv[]) {
     std::vector<std::string> variables = {"Western Australia", "Northern Territory", "South Australia", "Queensland", "New South Wales", "Victoria", "Tasmania"};
     std::unordered_map<std::string, std::vector<std::string>> domains;
+
     for (const auto& variable : variables) {
         domains[variable] = {"red", "green", "blue"};
     }
+
     CSP<std::string, std::string> csp(variables, domains);
     csp.add_constraint(std::make_shared<MapColoringConstraint>("Western Australia", "Northern Territory"));
     csp.add_constraint(std::make_shared<MapColoringConstraint>("Western Australia", "South Australia"));
@@ -79,6 +81,7 @@ int main(int argc, char* argv[]) {
     csp.add_constraint(std::make_shared<MapColoringConstraint>("Victoria", "New South Wales"));
     csp.add_constraint(std::make_shared<MapColoringConstraint>("Victoria", "Tasmania"));
     std::unordered_map<std::string, std::string> solution = csp.backtracking_search();
+    
     if (solution.empty()) {
         std::cout << "No solution found!" << std::endl;
     }
@@ -87,5 +90,6 @@ int main(int argc, char* argv[]) {
             std::cout << variable << ": " << value << std::endl;
         }
     }
+    
     return EXIT_SUCCESS;
 }
