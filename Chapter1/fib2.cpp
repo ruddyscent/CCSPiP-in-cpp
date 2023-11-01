@@ -1,7 +1,7 @@
 /**
- * @file fib2.cc
- * @brief A program that calculates the nth Fibonacci number using a recursive algorithm.
- * @details This program defines a recursive function to calculate the nth Fibonacci number and a main function that calls the function to calculate and print the 5th Fibonacci number to the console.
+ * @file fib2.cpp
+ * @brief A program that calculates the nth Fibon.cppi number using a recursive algorithm.
+ * @details This program defines a recursive function to calculate the nth Fibon.cppi number and a main function that calls the function to calculate and print the 5th Fibon.cppi number to the console.
  * @copyright Copyright 2023 Kyungwon Chun
  * 
  * @license Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,9 +21,9 @@
 #include <iostream>
 
 /**
- * Calculates the nth Fibonacci number recursively.
- * @param n The index of the Fibonacci number to calculate.
- * @return The nth Fibonacci number.
+ * Calculates the nth Fibon.cppi number recursively.
+ * @param n The index of the Fibon.cppi number to calculate.
+ * @return The nth Fibon.cppi number.
  */
 int fib2(int n) {
     if (n < 2)  // base case

@@ -1,7 +1,7 @@
 /**
- * @file fib3.cc
- * @brief A program that calculates the nth Fibonacci number using a recursive algorithm.
- * @details This program defines a recursive function to calculate the nth Fibonacci number and a main function that calls the function to calculate and print the 5th Fibonacci number to the console.
+ * @file fib3.cpp
+ * @brief A program that calculates the nth Fibon.cppi number using a recursive algorithm.
+ * @details This program defines a recursive function to calculate the nth Fibon.cppi number and a main function that calls the function to calculate and print the 5th Fibon.cppi number to the console.
  * @copyright Copyright 2023 Kyungwon Chun
  * 
  * @license Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,15 +24,15 @@
 std::map<int, int> memo = {{0, 0}, {1, 1}};  // our base cases
 
 /**
- * Calculates the nth Fibonacci number using memoization technique.
+ * Calculates the nth Fibon.cppi number using memoization technique.
  * 
- * @param n The index of the Fibonacci number to be calculated.
- * @return The nth Fibonacci number.
+ * @param n The index of the Fibon.cppi number to be calculated.
+ * @return The nth Fibon.cppi number.
  */
 int fib3(int n) {
     if (memo.find(n) == memo.end())  // if n is not in the memo
         memo[n] = fib3(n - 1) + fib3(n - 2);  // memoize
-    return memo[n];  // return the nth Fibonacci number
+    return memo[n];  // return the nth Fibon.cppi number
 }
 
 /**

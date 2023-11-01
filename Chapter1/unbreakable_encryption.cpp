@@ -1,5 +1,5 @@
 /**
- * @file unbreakable_encryption.cc
+ * @file unbreakable_encryption.cpp
  * @brief Demonstrates the use of the one-time pad encryption algorithm.
  * @details The one-time pad encryption algorithm is an unbreakable encryption algorithm.
  * @copyright Copyright 2023 Kyungwon Chun

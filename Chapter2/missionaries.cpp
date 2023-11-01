@@ -1,5 +1,5 @@
 /**
- * @file missionaries.cc
+ * @file missionaries.cpp
  * @brief Solves the missionaries and cannibals problem using the generic search algorithm.
  * @details The missionaries and cannibals problem is a well-known toy problem in AI.
  * 
@@ -77,10 +77,10 @@ public:
     }
 
     /**
-     * @brief Returns a vector of all possible successor states from the current state.
+     * @brief Returns a vector of all possible s.cppessor states from the current state.
      * 
      * @param s The current state of the problem.
-     * @return std::vector<MCState> A vector of all possible successor states from the current state.
+     * @return std::vector<MCState> A vector of all possible s.cppessor states from the current state.
     */
     std::vector<MCState> successors(const MCState& s) const {
         std::vector<MCState> sucs;

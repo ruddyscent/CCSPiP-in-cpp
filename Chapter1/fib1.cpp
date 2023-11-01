@@ -1,7 +1,7 @@
 /**
- * @file fib1.cc
- * @brief A program that calculates the nth Fibonacci number using a recursive algorithm.
- * @details This program defines a recursive function to calculate the nth Fibonacci number and a main function that calls the function to calculate and print the 5th Fibonacci number to the console.
+ * @file fib1.cpp
+ * @brief A program that calculates the nth Fibon.cppi number using a recursive algorithm.
+ * @details This program defines a recursive function to calculate the nth Fibon.cppi number and a main function that calls the function to calculate and print the 5th Fibon.cppi number to the console.
  * This program is a bad example of a recursive function because it does not have a base case.
  * @copyright Copyright 2023 Kyungwon Chun
  * 
@@ -22,19 +22,19 @@
 #include <iostream>
 
 /**
- * Calculates the nth Fibonacci number recursively.
- * @param n The index of the Fibonacci number to calculate.
- * @return The nth Fibonacci number.
+ * Calculates the nth Fibon.cppi number recursively.
+ * @param n The index of the Fibon.cppi number to calculate.
+ * @return The nth Fibon.cppi number.
  */
 int fib1(int n) {
     return fib1(n - 1) + fib1(n - 2);
 }
 
 /**
- * The main function that calls the fib1 function to calculate the 5th Fibonacci number and prints it to the console.
+ * The main function that calls the fib1 function to calculate the 5th Fibon.cppi number and prints it to the console.
  * @param argc The number of command-line arguments.
  * @param argv An array of command-line arguments.
- * @return EXIT_SUCCESS if the program executes successfully.
+ * @return EXIT_SUCCESS if the program executes s.cppessfully.
  */
 int main(int argc, char* argv[]) {
     std::cout << fib1(5) << std::endl;

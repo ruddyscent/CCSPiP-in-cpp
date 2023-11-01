@@ -1,5 +1,5 @@
 /**
- * @file trivial_compression.cc
+ * @file trivial_compression.cpp
  * @brief This file contains the implementation of a simple gene compression algorithm.
  * @details The algorithm compresses a DNA sequence by converting each nucleotide to a 2-bit code and concatenating them.
  * The compressed sequence is then stored in an integer array. The algorithm also provides a decompression method to

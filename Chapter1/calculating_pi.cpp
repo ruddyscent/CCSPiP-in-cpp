@@ -1,5 +1,5 @@
 /**
- * @file calculating_pi.cc
+ * @file calculating_pi.cpp
  * @brief A program that calculates the value of pi using the Leibniz formula.
  * @details This program defines a function to calculate the value of pi using the Leibniz formula and a main function that calls the function to calculate and print the value of pi with 1,000,000 terms to the console.
  * @copyright Copyright 2023 Kyungwon Chun
@@ -46,7 +46,7 @@ float calculate_pi(int n_terms) {
  * The main function that calls the calculate_pi function to calculate the value of pi with 1,000,000 terms and prints it to the console.
  * @param argc The number of command-line arguments.
  * @param argv An array of command-line arguments.
- * @return EXIT_SUCCESS if the program executes successfully.
+ * @return EXIT_SUCCESS if the program executes s.cppessfully.
  */
 int main(int argc, char* argv[]) {
     cout << calculate_pi(1000000) << endl;

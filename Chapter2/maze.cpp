@@ -1,5 +1,5 @@
 /**
- * @file maze.cc
+ * @file maze.cpp
  * @brief A program that solves a maze using depth-first search, breadth-first search, and A*.
  * @details This program uses the generic_search.h header file to solve a maze using depth-first search, breadth-first search, and A*.
  * @copyright Copyright 2023 Kyungwon Chun
@@ -84,10 +84,10 @@ public:
     }
 
     /**
-     * @brief Get the list of possible successor locations from the given location.
+     * @brief Get the list of possible s.cppessor locations from the given location.
      * 
-     * @param ml The location to get successors from.
-     * @return A vector of possible successor locations.
+     * @param ml The location to get s.cppessors from.
+     * @return A vector of possible s.cppessor locations.
      */
     std::vector<MazeLocation> successors(const MazeLocation& ml) const {
         std::vector<MazeLocation> locations;

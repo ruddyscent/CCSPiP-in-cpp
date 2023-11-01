@@ -1,5 +1,5 @@
 /**
- * @file send_more_money.cc
+ * @file send_more_money.cpp
  * @brief Send More Money problem
  * @details This is a Send More Money problem. The goal is to assign digits to the letters S, E, N, D, M, O, R, Y such that the sum of the values assigned to the variables S, E, N, D, M, O, R, Y should add up to the value assigned to the variables M, O, N, E, Y. The solution is unique.
  * @copyright Copyright 2023 Kyungwon Chun

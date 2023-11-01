@@ -1,5 +1,5 @@
 /**
- * @file dna_search.cc   
+ * @file dna_search.cpp   
  * @brief Searches for a DNA sequence in a given string.
  * @details This program searches for a DNA sequence in a given string using
  * @copyright Copyright 2023 Kyungwon Chun

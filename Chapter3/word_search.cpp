@@ -1,5 +1,5 @@
 /**
- * @file word_search.cc
+ * @file word_search.cpp
  * @brief Word search problem
  * @details This is a word search problem. The goal is to assign letters to a grid of size 9x9 such that the letters form words in the rows and columns. The words are given in a list. The words can be placed in the grid in any direction (left to right, right to left, top to bottom, bottom to top, and diagonally in all four directions).
  * @copyright Copyright 2023 Kyungwon Chun

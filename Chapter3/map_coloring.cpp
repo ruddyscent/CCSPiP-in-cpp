@@ -1,5 +1,5 @@
 /**
- * @file map_coloring.cc
+ * @file map_coloring.cpp
  * @brief Map coloring problem
  * @details The map coloring problem is to assign colors to each region of a map such that no neighboring regions have the same color. This is an example of a constraint satisfaction problem.
  * @copyright Copyright 2023 Kyungwon Chun

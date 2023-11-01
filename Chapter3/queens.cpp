@@ -1,5 +1,5 @@
 /**
- * @file queens.cc
+ * @file queens.cpp
  * @brief N-Queens Problem
  * @details This file contains the implementation of the N-Queens problem using constraint satisfaction problem (CSP) framework from Chapter 3. The N-Queens problem is to place N queens on an N x N chessboard such that no two queens are in the same row, column, or diagonal.
  * @copyright Copyright 2023 Kyungwon Chun
@@ -67,7 +67,7 @@ public:
  * @details This function is the entrypoint of the program.
  * @param argc The number of command-line arguments
  * @param argv The command-line arguments
- * @return EXIT_SUCCESS if the program exits successfully, EXIT_FAILURE otherwise
+ * @return EXIT_SUCCESS if the program exits s.cppessfully, EXIT_FAILURE otherwise
  */
 int main(int argc, char* argv[]) {
     std::vector<int> columns = {1, 2, 3, 4, 5, 6, 7, 8};

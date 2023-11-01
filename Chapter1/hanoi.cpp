@@ -1,5 +1,5 @@
 /**
- * @file hanoi.cc
+ * @file hanoi.cpp
  * @brief Solves the Tower of Hanoi problem.
  * @details The Tower of Hanoi is a mathematical puzzle where you have three rods and n disks of different sizes.
  * @copyright Copyright 2023 Kyungwon Chun
