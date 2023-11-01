@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-// #include <cstdlib>
+#pragma once
+
 #include <iostream>
 #include <string>
 
@@ -27,16 +28,13 @@
  */
 class Edge {
 public:
-    int u; // the "from" vertex
-    int v; // the "to" vertex
-
     /**
      * @brief Construct a new Edge object.
      * 
      * @param u The "from" vertex.
      * @param v The "to" vertex.
      */
-    Edge(int u, int v) : u(u), v(v) {}
+    Edge(int u, int v) : _u(u), _v(v) {}
 
     /**
      * @brief Get the reversed edge.
@@ -44,7 +42,7 @@ public:
      * @return Edge The reversed edge.
      */
     Edge reversed() const {
-        return Edge(v, u);
+        return Edge(_v, _u);
     }
 
     /**
@@ -53,20 +51,26 @@ public:
      * @return std::string The string representation of the edge.
      */
     std::string to_string() const {
-        return std::to_string(u) + " -> " + std::to_string(v);
+        return std::to_string(_u) + " -> " + std::to_string(_v);
     }
-};
 
-// /**
-//  * The main function of the program.
-//  * 
-//  * @param argc The number of command-line arguments provided.
-//  * @param argv An array of strings containing the command-line arguments.
-//  * @return An integer representing the exit status of the program.
-//  */
-// int main(int argc, char* argv[]) {
-//     Edge e(1, 2);
-//     std::cout << e.to_string() << std::endl;
-//     std::cout << e.reversed().to_string() << std::endl;
-//     return EXIT_SUCCESS;
-// }
+    /**
+     * Returns the first vertex of the edge.
+     * @return The first vertex of the edge.
+     */
+    int get_u() const {
+        return _u;
+    }
+
+    /**
+     * Returns the second vertex of the edge.
+     * @return The second vertex of the edge.
+     */
+    int get_v() const {
+        return _v;
+    }
+
+protected:
+    int _u; // the "from" vertex
+    int _v; // the "to" vertex
+};

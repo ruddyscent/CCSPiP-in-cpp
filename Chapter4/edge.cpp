@@ -1,7 +1,7 @@
 /**
- * @file weighted_edge.cpp
- * @brief The WeightedEdge class represents a weighted directed edge in a graph.
- * @details The WeightedEdge class represents a weighted directed edge in a graph.
+ * @file edge.cpp
+ * @brief The Edge class represents a directed edge in a graph.
+ * @details The Edge class represents a directed edge in a graph.
  * @copyright Copyright 2023 Kyungwon Chun
  * 
  * @license Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,17 +17,19 @@
  * limitations under the License.
  */
 
-#include "weighted_edge.h"
+#include <cstdlib>
+
+#include "edge.h"
 
 /**
- * @brief The main function creates a WeightedEdge object and prints its string representation and the string representation of its reversed edge.
+ * The main function of the program.
  * 
  * @param argc The number of command-line arguments provided.
- * @param argv An array of pointers to the arguments.
- * @return int The exit status of the program.
+ * @param argv An array of strings containing the command-line arguments.
+ * @return An integer representing the exit status of the program.
  */
 int main(int argc, char* argv[]) {
-    WeightedEdge e(1, 2, 0.5);
+    Edge e(1, 2);
     std::cout << e.to_string() << std::endl;
     std::cout << e.reversed().to_string() << std::endl;
     return EXIT_SUCCESS;
