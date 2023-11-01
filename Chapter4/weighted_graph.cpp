@@ -21,6 +21,13 @@
 
 #include "weighted_graph.h"
 
+/**
+ * @brief Main function that runs the program.
+ * 
+ * @param argc Number of command line arguments.
+ * @param argv Array of command line arguments.
+ * @return int Exit status of the program.
+ */
 int main(int argc, char* argv[]) {
     WeightedGraph<std::string> city_graph2({"Seattle", "San Francisco", "Los Angeles", "Riverside", "Phoenix", "Chicago", "Boston", "New York", "Atlanta", "Miami", "Dallas", "Houston", "Detroit", "Philadelphia", "Washington"});
     city_graph2.add_edge_by_vertices("Seattle", "Chicago", 1737);
