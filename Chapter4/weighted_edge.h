@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef WEIGHTED_EDGE_H
+#define WEIGHTED_EDGE_H
 
 #include "edge.h"
 
@@ -77,3 +78,5 @@ public:
 private:
     float _weight;  // The weight of the edge.
 };
+
+#endif // WEIGHTED_EDGE_H

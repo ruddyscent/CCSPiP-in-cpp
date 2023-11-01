@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef WEIGHTED_GRAPH_H
+#define WEIGHTED_GRAPH_H
 
 #include "graph.h"
 #include "weighted_edge.h"
@@ -121,3 +122,5 @@ protected:
      */
     std::vector<std::vector<WeightedEdge>> _edges;
 };
+
+#endif // WEIGHTED_GRAPH_H

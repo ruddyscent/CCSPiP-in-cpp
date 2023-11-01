@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef GRAPH_H
+#define GRAPH_H
 
 #include <algorithm>
 #include <vector>
@@ -194,3 +195,5 @@ protected:
      */
     std::vector<std::vector<Edge>> _edges;
 };
+
+#endif // GRAPH_H

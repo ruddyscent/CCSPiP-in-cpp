@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef EDGE_H
+#define EDGE_H
 
 #include <iostream>
 #include <string>
@@ -74,3 +75,5 @@ protected:
     int _u; // the "from" vertex
     int _v; // the "to" vertex
 };
+
+#endif // EDGE_H
