@@ -1,5 +1,5 @@
 /**
- * @file edge.cpp
+ * @file edge.h
  * @brief The Edge class represents a directed edge in a graph.
  * @details The Edge class represents a directed edge in a graph.
  * @copyright Copyright 2023 Kyungwon Chun
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include <cstdlib>
+// #include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -57,16 +57,16 @@ public:
     }
 };
 
-/**
- * The main function of the program.
- * 
- * @param argc The number of command-line arguments provided.
- * @param argv An array of strings containing the command-line arguments.
- * @return An integer representing the exit status of the program.
- */
-int main(int argc, char* argv[]) {
-    Edge e(1, 2);
-    std::cout << e.to_string() << std::endl;
-    std::cout << e.reversed().to_string() << std::endl;
-    return EXIT_SUCCESS;
-}
+// /**
+//  * The main function of the program.
+//  * 
+//  * @param argc The number of command-line arguments provided.
+//  * @param argv An array of strings containing the command-line arguments.
+//  * @return An integer representing the exit status of the program.
+//  */
+// int main(int argc, char* argv[]) {
+//     Edge e(1, 2);
+//     std::cout << e.to_string() << std::endl;
+//     std::cout << e.reversed().to_string() << std::endl;
+//     return EXIT_SUCCESS;
+// }
