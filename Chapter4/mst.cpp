@@ -1,7 +1,7 @@
 /**
  * @file mst.cpp
- * @brief
- * @details
+ * @brief Calculates the minimum spanning tree (MST) of a weighted graph.
+ * @details This implementation uses Prim's algorithm.
  * @copyright Copyright 2023 Kyungwon Chun
  * 
  * @license Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,10 +22,7 @@
 #include <queue>
 #include <vector>
 
-#include "weighted_graph.h"
-#include "weighted_edge.h"
-
-using WeightedPath = std::vector<WeightedEdge>;
+#include "mst.h"
 
 float total_weight(const WeightedPath& wp) {
     float total = 0.0;
@@ -33,42 +30,6 @@ float total_weight(const WeightedPath& wp) {
         total += e.get_weight();
     }
     return total;
-}
-
-WeightedPath mst(WeightedGraph<std::string>& wg, int start = 0) {
-    WeightedPath result;
-    std::priority_queue<WeightedEdge, std::vector<WeightedEdge>, std::greater<>> pq;
-    std::vector<bool> visited(wg.vertex_count(), false);
-
-    auto visit = [&](int index) {
-        visited[index] = true;
-        for (const auto& edge : wg.edges_for_index(index)) {
-            if (!visited[edge.get_v()]) {
-                pq.push(edge);
-            }
-        }
-    };
-
-    visit(start);
-
-    while (!pq.empty()) {
-        auto edge = pq.top();
-        pq.pop();
-        if (visited[edge.get_v()]) {
-            continue;
-        }
-        result.push_back(edge);
-        visit(edge.get_v());
-    }
-
-    return result;
-}
-
-void print_weighted_path(WeightedGraph<std::string>& wg, const WeightedPath& wp) {
-    for (const auto& edge : wp) {
-        std::cout << wg.vertex_at(edge.get_u()) << " " << edge.get_weight() << "> " << wg.vertex_at(edge.get_v()) << "\n";
-    }
-    std::cout << "Total Weight: " << total_weight(wp) << "\n";
 }
 
 int main(int argc, char* argv[]) {
