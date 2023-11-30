@@ -58,6 +58,17 @@ public:
     }
 
     /**
+     * @brief Overloads the greater than operator to compare edges based on their weight.
+     * 
+     * @param other The other edge to compare with.
+     * @return true if the weight of the current edge is greater than the weight of the other edge.
+     * @return false otherwise.
+     */
+    bool operator>(const WeightedEdge& other) const {
+        return _weight > other._weight;
+    }
+
+    /**
      * @brief Returns a string representation of the edge.
      * 
      * @return std::string The string representation of the edge.
