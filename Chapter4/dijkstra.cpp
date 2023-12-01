@@ -1,81 +1,8 @@
 #include <vector>
-#include <queue>
-#include <unordered_map>
-#include <limits>
-#include <algorithm>
-#include <optional>
 #include <iostream>
-#include <utility>
-#include <string>
 
+#include "dijkstra.h"
 #include "mst.h"
-#include "weighted_graph.h"
-#include "weighted_edge.h"
-
-struct DijkstraNode {
-    DijkstraNode(int vertex, double distance) : vertex(vertex), distance(distance) {}
-
-    bool operator<(const DijkstraNode& other) const {
-        return distance > other.distance;
-    }
-
-    bool operator==(const DijkstraNode& other) const {
-        return distance == other.distance;
-    }
-
-    int vertex;
-    double distance;
-};
-
-template <typename V>
-std::pair<std::vector<double>, std::unordered_map<int, WeightedEdge>> dijkstra(const WeightedGraph<V>& wg, V root) {
-    int first = wg.index_of(root);
-    std::vector<double> distances(wg.vertex_count(), std::numeric_limits<double>::infinity());
-    distances[first] = 0;
-    std::unordered_map<int, WeightedEdge> path_dict;
-    std::priority_queue<DijkstraNode> pq;
-    pq.push(DijkstraNode(first, 0));
-
-    while (!pq.empty()) {
-        int u = pq.top().vertex;
-        pq.pop();
-        double dist_u = distances[u];
-
-        for (WeightedEdge& we : wg.edges_for_index(u)) {
-            double dist_v = distances[we.get_v()];
-            if (dist_v == std::numeric_limits<double>::infinity() || dist_v > we.get_weight() + dist_u) {
-                distances[we.get_v()] = we.get_weight() + dist_u;
-                path_dict[we.get_v()] = we;
-                pq.push(DijkstraNode(we.get_v(), we.get_weight() + dist_u));
-            }
-        }
-    }
-
-    return std::make_pair<std::vector<double>, std::unordered_map<int, WeightedEdge>>(std::move(distances), std::move(path_dict));
-}
-
-template <typename V>
-std::unordered_map<V, double> distance_array_to_vertex_dict(const WeightedGraph<V>& wg, std::vector<double>& distances) {
-    std::unordered_map<V, double> distance_dict;
-    for (int i = 0; i < distances.size(); i++) {
-        distance_dict[wg.vertex_at(i)] = distances[i];
-    }
-    return distance_dict;
-}
-
-std::vector<WeightedEdge> path_dict_to_path(int start, int end, std::unordered_map<int, WeightedEdge>& path_dict) {
-    std::vector<WeightedEdge> path;
-    WeightedEdge edge = path_dict[end];
-    path.push_back(edge);
-
-    while (edge.get_u() != start) {
-        edge = path_dict[edge.get_u()];
-        path.push_back(edge);
-    }
-
-    reverse(path.begin(), path.end());
-    return path;
-}
 
 int main(int argc, char* argv[]) {
     WeightedGraph<std::string> city_graph2({"Seattle", "San Francisco", "Los Angeles", "Riverside", "Phoenix", "Chicago", "Boston", "New York", "Atlanta", "Miami", "Dallas", "Houston", "Detroit", "Philadelphia", "Washington"});
