@@ -23,14 +23,20 @@
 #include "edge.h"
 
 /**
- * @brief WeightedEdge class represents an edge in a weighted graph.
- * 
+ * @class WeightedEdge
+ * @brief Represents a weighted edge in a graph.
+ * @details A weighted edge is an edge that has a weight associated with it.
  */
 class WeightedEdge : public Edge {
 public:
     /**
-     * @brief Construct a new WeightedEdge object
-     * 
+     * @brief Default constructor.
+     * @details Constructs a WeightedEdge object with default values.
+     */
+    WeightedEdge() : Edge(0, 0), _weight(0.0f) {}
+
+    /**
+     * @brief Constructs a new WeightedEdge object.
      * @param u The source vertex of the edge.
      * @param v The destination vertex of the edge.
      * @param weight The weight of the edge.
@@ -39,7 +45,6 @@ public:
 
     /**
      * @brief Returns the reversed edge of the current edge.
-     * 
      * @return WeightedEdge The reversed edge.
      */
     WeightedEdge reversed() const {
@@ -48,10 +53,8 @@ public:
 
     /**
      * @brief Overloads the less than operator to compare edges based on their weight.
-     * 
      * @param other The other edge to compare with.
-     * @return true if the weight of the current edge is less than the weight of the other edge.
-     * @return false otherwise.
+     * @return true if the weight of the current edge is less than the weight of the other edge, false otherwise.
      */
     bool operator<(const WeightedEdge& other) const {
         return _weight < other._weight;
@@ -59,10 +62,8 @@ public:
 
     /**
      * @brief Overloads the greater than operator to compare edges based on their weight.
-     * 
      * @param other The other edge to compare with.
-     * @return true if the weight of the current edge is greater than the weight of the other edge.
-     * @return false otherwise.
+     * @return true if the weight of the current edge is greater than the weight of the other edge, false otherwise.
      */
     bool operator>(const WeightedEdge& other) const {
         return _weight > other._weight;
@@ -70,7 +71,6 @@ public:
 
     /**
      * @brief Returns a string representation of the edge.
-     * 
      * @return std::string The string representation of the edge.
      */
     std::string to_string() const {
@@ -79,7 +79,6 @@ public:
 
     /**
      * @brief Returns the weight of the edge.
-     * 
      * @return float The weight of the edge.
      */
     float get_weight() const {

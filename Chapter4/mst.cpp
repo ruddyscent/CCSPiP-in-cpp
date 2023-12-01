@@ -24,14 +24,6 @@
 
 #include "mst.h"
 
-float total_weight(const WeightedPath& wp) {
-    float total = 0.0;
-    for (const auto& e : wp) {
-        total += e.get_weight();
-    }
-    return total;
-}
-
 int main(int argc, char* argv[]) {
     WeightedGraph<std::string> city_graph2({"Seattle", "San Francisco", "Los Angeles", "Riverside", "Phoenix", "Chicago", "Boston", "New York", "Atlanta", "Miami", "Dallas", "Houston", "Detroit", "Philadelphia", "Washington"});
 

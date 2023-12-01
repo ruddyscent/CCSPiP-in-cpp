@@ -13,6 +13,9 @@ Apply features from modern C++ wherever possible.
 * `fib4.py` is an implementation that uses Python's decorators, so porting is omitted.
 * `fib6.py` is an implementation that uses Python's generators, so porting is omitted.
 
+### Chapter4
+* `priority_queue.py` can be replaced with `std::priority_queue` provided by the C++ Standard Template Library, so porting is omitted.
+
 ## License
 All of the source code in this repository is released under the Apache License version 2.0. See LICENSE.
 

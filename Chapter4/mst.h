@@ -35,7 +35,13 @@ using WeightedPath = std::vector<WeightedEdge>;
  * @param wp The weighted path for which to calculate the total weight.
  * @return The total weight of the weighted path.
  */
-float total_weight(const WeightedPath& wp);
+float total_weight(const WeightedPath& wp) {
+    float total = 0.0;
+    for (const auto& e : wp) {
+        total += e.get_weight();
+    }
+    return total;
+}
 
 /**
  * @brief Prints the weighted path in a weighted graph.
